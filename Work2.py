@@ -1,11 +1,13 @@
 import random 
 class Boss:
-  def __inti__(self , Name , Worktime , Hobby):
+  def __init__(self , Name , Worktime , Hobby):
     self.Name = Name
     self.Worktime = Worktime
     self.Hobby = Hobby
   def show_info(self ):
-    print("Ім'я: ", self.Name , "/n Стаж роботи: " , self.Worktime , "/nХобі боса: " , self.Hobby)
+    print("Ім'я: ", self.Name )
+    print("Стаж роботи: " , self.Worktime)
+    print("Хобі боса: " , self.Hobby)
 
 def Ex (self , Worktime , Hobby):
   if Hobby == "Шахи" :
@@ -14,11 +16,11 @@ def Ex (self , Worktime , Hobby):
     self.A = -2
   elif Hobby == "Програмування" :  
     self.A = 0
-    if Worktime =< 1 :
-    self.B = -4
-  elif Worktime =< 5 and => 1 :
+    if Worktime <= 1 :
+      self.B = -4
+  elif Worktime <= 5:
     self.B = 5
-  elif Worktime => 5 :  
+  elif Worktime >= 5 :
     self.B = 8
   self.Ef = self.A + self.B
 def rand(self ):
@@ -54,8 +56,8 @@ class Worker:
     self.num = num
     self.Power = Power
     self.PP = self.num <= self.Power // 2
-    self.PPP = self.num => self.Power // 2 and self.num <= self.Power * 1.5
-    self.PPPP = self.num => self.Power * 1.5
+    self.PPP = self.num >= self.Power // 2 and self.num <= self.Power * 1.5
+    self.PPPP = self.num >= self.Power * 1.5
     if self.PP:
       self.phrase = "Готовий працювати"
     if self.PPP:
@@ -79,7 +81,7 @@ class client :
     else:
       self.D = "Клієнт не заплатив."
       self.M = 0
-    return self.D  self.M
+    return self.D , self.M
 
 class storage :
   def __init__(self ,product ):
@@ -92,7 +94,7 @@ class storage :
     if count > self.product:
       count1 = 0
       for y in range(num):
-       self.R = product -= list[y].cus_weight
+       self.R = product - list[y].cus_weight
        if self.R:
          count1c +=1
        else:
@@ -107,8 +109,14 @@ class storage :
       self.time_transport = distance / self.speed
       return self.time_transport
 
-A = int(input("Введіть кількість днів симуляції"))
-Boos1 = Boss(random.choice(" Степан","Макс","Олксандр") , random.randint(1 , 10) , random.choice("Шахи","Кулінарія","Програмування"))
+A = int(input("Введіть кількість днів симуляції: " ))
+A1 = ["Макс" ,"Степан","Олександр","Федір"]
+S1 = ["Шахи","Кулінарія","Програмування"]
+D = random.choice(A1)
+F = random.randint(1 , 10)
+C = random.choice(S1)
+Boos1 = Boss(D, F ,C)
+Boos1.show_info()
    
     
       
