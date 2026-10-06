@@ -34,4 +34,24 @@ def rand(self ):
   self.Exx = (self.Ef + self.F)//5
   return self.Exx
 pass 
-
+class Worker:
+  def __init__(self,  Name, weight):
+    self.Name = Name
+    self.weight = weight
+    
+  def work(self, Max_weight):
+    self.Max_weight = Max_weight
+    self.S = self.Max_weight // self.weight
+    return self.S
+    
+  def work2(self, num, Power):
+    self.PP = self.num => self.Power // 2
+    
+    if self.PP:
+      
+    
+    
+    
+    
+    
+    
