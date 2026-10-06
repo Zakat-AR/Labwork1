@@ -96,7 +96,16 @@ class storage :
          count1 += 0
       self.DD = "Можемо надати товар: " + str(count1) + "для клієнтів"  
     return self.DD  
-        
+
+  class transport:
+    def __init__(self, speed):
+       self.speed = speed
+    def Ef (self):
+      self.Ef = 100 // self.speed
+      return self.Ef
+      
+   
+    
       
     
 
