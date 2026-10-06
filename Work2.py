@@ -4,6 +4,8 @@ class Boss:
     self.Name = Name
     self.Worktime = Worktime
     self.Hobby = Hobby
+  def show_info(self ):
+    print("Ім'я: ", self.Name , "/n Стаж роботи: " , self.Worktime , "/nХобі боса: " , self.Hobby)
 
 def Ex (self , Worktime , Hobby):
   if Hobby == "Шахи" :
@@ -65,8 +67,9 @@ class Worker:
 
 
 class client :
-  def __init__(self , cus_weight ):
+  def __init__(self , cus_weight , distance ):
     self.cus_weigth = cus_weigth
+    self.distance = distance
 
   def cl_reaction(self , time):
     self.time = time
@@ -100,10 +103,12 @@ class storage :
   class transport:
     def __init__(self, speed):
        self.speed = speed
-    def Ef (self):
-      self.Ef = 100 // self.speed
-      return self.Ef
-      
+    def time_transport (self , distance):
+      self.time_transport = distance / self.speed
+      return self.time_transport
+
+A = int(input("Введіть кількість днів симуляції"))
+Boos1 = Boss(random.choice(" Степан","Макс","Олксандр") , random.randint(1 , 10) , random.choice("Шахи","Кулінарія","Програмування"))
    
     
       
