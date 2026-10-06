@@ -32,8 +32,12 @@ def rand(self ):
   if self.phrase == "Шеф втік з роботи":
     self.F = -10  
   self.Exx = (self.Ef + self.F)//5
+  if self.Exx <= 0:
+    self.Exx *= -1
+    self.Exx = 1 / self.Exx
   return self.Exx
 pass 
+
 class Worker:
   def __init__(self,  Name, weight):
     self.Name = Name
@@ -45,13 +49,60 @@ class Worker:
     return self.S
     
   def work2(self, num, Power):
-    self.PP = self.num => self.Power // 2
-    
+    self.num = num
+    self.Power = Power
+    self.PP = self.num <= self.Power // 2
+    self.PPP = self.num => self.Power // 2 and self.num <= self.Power * 1.5
+    self.PPPP = self.num => self.Power * 1.5
     if self.PP:
+      self.phrase = "Готовий працювати"
+    if self.PPP:
+      self.phrase = "Працює неохоче"
+    if self.PPPP:
+      self.prase = "Шукає привід звільнитись"
+    return self.prase  
+  pass
+
+
+class client :
+  def __init__(self , cus_weight ):
+    self.cus_weigth = cus_weigth
+
+  def cl_reaction(self , time):
+    self.time = time
+    if self.time :
+      self.D = "Клієнт заплатив. "
+      self.M = 100
+    else:
+      self.D = "Клієнт не заплатив."
+      self.M = 0
+    return self.D  self.M
+
+class storage :
+  def __init__(self ,product ):
+    self.product = product 
+
+  def pos (self , num ):
+    count = 0
+    for x in range (num):
+      count += list[x].cus_weight
+    if count > self.product:
+      count1 = 0
+      for y in range(num):
+       self.R = product -= list[y].cus_weight
+       if self.R:
+         count1c +=1
+       else:
+         count1 += 0
+      self.DD = "Можемо надати товар: " + str(count1) + "для клієнтів"  
+    return self.DD  
+        
       
     
+
     
     
     
     
-    
+      
+      
