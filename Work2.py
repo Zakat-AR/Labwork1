@@ -53,7 +53,8 @@ class Worker:
     self.S = self.Max_weight // self.weight 
     return self.S
     
-  def work2(self, num, Power):
+  def work2(self, num, Power , S):
+    self.S = S
     self.num = num
     self.Power = Power
     self.PP = (self.num + self.S) <= self.Power // 2
@@ -64,8 +65,7 @@ class Worker:
     if self.PPP:
       self.phrase = "Працює неохоче"
     if self.PPPP:
-      self.prase = "Шукає привід звільнитись"
-    return self.prase  
+      self.prase = "Шукає привід звільнитись"  
   pass
 
 
@@ -126,11 +126,11 @@ print("Робітник: ",worker1.Name,"приступає до роботи")
 print("Робітник: ",worker2.Name,"приступає до роботи")
 print("Робітник: ",worker3.Name,"приступає до роботи")
 Clients = []
-worker1.Max_weight = 25
-worker2.Max_weight = 20
-worker3.Max_weight = 30
+Max_weight1 = 25
+Max_weight2 = 20
+Max_weight3 = 30
 for E in range(A):
-  time = 15
+  time = 2.5
   S1 = random.randint(1,4)
   S2 = random.randint(1,4)
   S3 = random.randint(1,4)
@@ -148,17 +148,37 @@ for E in range(A):
     distance.append(cl_distance)
     Clients.append(client)
   N_mork = clients_num // 3 
+  P1 = random.randint(1,7)
+  P2 = random.randint(1,7)
+  P2 = random.randint(1,7)
+
   if N_mork >0:
-    worker1.num = N_work
+    num1 = N_work
+    weight1 = sum(weight[0:3])
     if N_mork >1 and N_mork <3:
-      worker2.num = N_work + clients_num % 3 
-    if N_mork >1: 
-      worker2.num = N_work
+      weight2 = sum(weight[4:])
+      num2 = N_work + clients_num % 3 
+    if N_mork >1:
+      weight2 = sum(weight[4:7])
+      num2 = N_work
       if N_mork == 3:
-        worker3.num = N_work + clients_num % 3 
-   print(f"Сьогодні {worker1.Name} має точок доставки: ",worker1.num)
-   print(f"Сьогодні {worker1.Name} має точок доставки: ",worker2.num)
-   print(f"Сьогодні {worker1.Name} має точок доставки: ",worker3.num)
+        weight3 = sum(weight[7:])
+        num3 = N_work + clients_num % 3 
+  print(f"Сьогодні {worker1.Name} має точок доставки: ",num1)
+  print(f"Сьогодні {worker1.Name} має точок доставки: ",num2)
+  print(f"Сьогодні {worker1.Name} має точок доставки: ",num3)  
+  SS1 = worker1.work(Max_weight1 , weight1)
+  SS2 = worker2.work(Max_weight2 , weight2)
+  SS3 = worker3.work(Max_weight2 , weight3)
+  worker1.work2(num1, P1 , SS1)
+  worker2.work2(num2 , P2 , SS2)
+  worker3.work2(num3 , P3 , SS2)
+  
+  
+  
+  
+  
+
   
     
   
