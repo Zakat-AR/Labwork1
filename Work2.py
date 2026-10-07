@@ -58,7 +58,7 @@ class Worker:
     self.Power = Power
     self.PP = (self.num + self.S) <= self.Power // 2
     self.PPP = (self.num + self.S) >= self.Power // 2 and self.num <= self.Power * 1.5
-    self.PPPP = self.num + self.S) >= self.Power * 1.5
+    self.PPPP = (self.num + self.S) >= self.Power * 1.5
     if self.PP:
       self.phrase = "Готовий працювати"
     if self.PPP:
