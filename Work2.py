@@ -69,7 +69,7 @@ class Worker:
   pass
 
 
-class client :
+class Client :
   def __init__(self , cus_weight , distance ):
     self.cus_weigth = cus_weigth
     self.distance = distance
@@ -125,16 +125,41 @@ worker3 = Worker(random.choice(Y))
 print("Робітник: ",worker1.Name,"приступає до роботи")
 print("Робітник: ",worker2.Name,"приступає до роботи")
 print("Робітник: ",worker3.Name,"приступає до роботи")
-
-
-   
+Clients = []
+worker1.Max_weight = 25
+worker2.Max_weight = 20
+worker3.Max_weight = 30
+for E in range(A):
+  time = 15
+  S1 = random.randint(1,4)
+  S2 = random.randint(1,4)
+  S3 = random.randint(1,4)
+  car1 = transport(S1)
+  car2 = transport(S2)
+  car3 = transport(S3)
+  clients_num = random.randint(1,10)
+  weight = []
+  distance = []
+  for t in range(clients_num):
+    cl_weight = random.randint(1,100)
+    cl_distance = random.randint(1,10)
+    client = Client(cl_weight , cl_distance)
+    weight.append(cl_weight)
+    distance.append(cl_distance)
+    Clients.append(client)
+  N_mork = clients_num // 3 
+  if N_mork >0:
+    worker1.num = N_work
+    if N_mork >1 and N_mork <3:
+      worker2.num = N_work + clients_num % 3 
+    if N_mork >1: 
+      worker2.num = N_work
+      if N_mork == 3:
+        worker3.num = N_work + clients_num % 3 
+   print(f"Сьогодні {worker1.Name} має точок доставки: ",worker1.num)
+   print(f"Сьогодні {worker1.Name} має точок доставки: ",worker2.num)
+   print(f"Сьогодні {worker1.Name} має точок доставки: ",worker3.num)
+  
     
-      
-    
-
-    
-    
-    
-    
-      
-      
+  
+  
