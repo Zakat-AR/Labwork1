@@ -122,9 +122,9 @@ Y = ["Олексій","Антон","Федір","Микита","Максим","�
 worker1 = Worker(random.choice(Y))
 worker2 = Worker(random.choice(Y))
 worker3 = Worker(random.choice(Y))
-print(worker1.Name)
-print(worker2.Name)
-print(worker3.Name)
+print("Робітник: ",worker1.Name,"приступає до роботи")
+print("Робітник: ",worker2.Name,"приступає до роботи")
+print("Робітник: ",worker3.Name,"приступає до роботи")
 
 
    
