@@ -43,21 +43,22 @@ def rand(self ):
 pass 
 
 class Worker:
-  def __init__(self,  Name, weight):
+  def __init__(self,  Name ):
     self.Name = Name
-    self.weight = weight
     
-  def work(self, Max_weight):
+    
+  def work(self, Max_weight, weight):
+    self.weight = weight
     self.Max_weight = Max_weight
-    self.S = self.Max_weight // self.weight
+    self.S = self.Max_weight // self.weight 
     return self.S
     
   def work2(self, num, Power):
     self.num = num
     self.Power = Power
-    self.PP = self.num <= self.Power // 2
-    self.PPP = self.num >= self.Power // 2 and self.num <= self.Power * 1.5
-    self.PPPP = self.num >= self.Power * 1.5
+    self.PP = (self.num + self.S) <= self.Power // 2
+    self.PPP = (self.num + self.S) >= self.Power // 2 and self.num <= self.Power * 1.5
+    self.PPPP = self.num + self.S) >= self.Power * 1.5
     if self.PP:
       self.phrase = "Готовий працювати"
     if self.PPP:
@@ -117,6 +118,15 @@ F = random.randint(1 , 10)
 C = random.choice(S1)
 Boos1 = Boss(D, F ,C)
 Boos1.show_info()
+Y = ["Олексій","Антон","Федір","Микита","Максим","Олександр","Дмитро","Григорій"]
+worker1 = worker(random.choice(Y))
+worker2 = worker(random.choice(Y))
+worker3 = worker(random.choice(Y))
+print(worker1.Name)
+print(worker2.Name)
+print(worker3.Name)
+
+
    
     
       
