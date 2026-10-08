@@ -152,18 +152,30 @@ for E in range(A):
   P2 = random.randint(1,7)
   P2 = random.randint(1,7)
 
-  if N_mork >0:
-    num1 = N_work
-    weight1 = sum(weight[0:3])
-    if N_mork >1 and N_mork <3:
+  if N_work < 1:
+    num1 = clients_num // 3
+    weight1 = sum(weight[0:])
+    if N_work => 1 and N_work <2:
       weight2 = sum(weight[4:])
-      num2 = N_work + clients_num % 3 
-    if N_mork >1:
-      weight2 = sum(weight[4:7])
-      num2 = N_work
-      if N_mork == 3:
+      weight1 = sum(weight[0:3])
+      num1 = 3
+      num2 =  clients_num % 3 
+      if N_work => 2 and N_work < 3:
+        num1 = 3
+        num2 = 3
         weight3 = sum(weight[7:])
-        num3 = N_work + clients_num % 3 
+        weight2 = sum(weight[4:])
+        weight1 = sum(weight[:4])
+        num3 = clients_num % 3 
+        if N_work >= 3 :
+          num1 = 3
+          num2 = 3
+          num3 = 3 + clients_num % 3   
+          weight3 = sum(weight[7:])
+          weight2 = sum(weight[4:7])
+          weight1 = sum(weight[:4])
+        
+          
   print(f"Сьогодні {worker1.Name} має точок доставки: ",num1)
   print(f"Сьогодні {worker1.Name} має точок доставки: ",num2)
   print(f"Сьогодні {worker1.Name} має точок доставки: ",num3)  
