@@ -101,20 +101,33 @@ class Client :
 
 class storage :
   def __init__(self  ):
-    self.A = 0
+    self.AA = 0
+    self.count = 0
+    self.count13 = 0
+    self.WW = 0
     
- def products(self):
-   self.A = random.randint(400, 600)
-   print("Привезено сьогодні товару",A)
-   self.count += self.A
-def costs(self):
-  self.count -= weight1 - weight2 - weight3
-  if self.count > 0:
-    print("Товару вистачає")
-  else:
-    print("Товару не вистачає,витрачено грошей на докупівлю": , count13)
-    count13 = (self.count - weight1 - weight2 - weight3) * 30'
-    count11 -= count13
+  def products(self):
+    self.AA = random.randint(400, 1200)
+    print("Привезено сьогодні товару",self.AA)
+    self.count += self.AA
+    
+  def costs(self,count11):
+    self.WW = -weight1 - weight2 - weight3
+    self.count += self.WW
+    if self.count > 0:
+      print("Наявий товар: ",self.count)
+      print("Необхідний товар: ", -1*self.WW)
+      print("Товару вистачає")
+    elif  self.count < 0 :
+      self.count13 = (self.count - weight1 - weight2 - weight3) * 30
+      print("Наявий товар: ",self.count)
+      print("Необхідний товар: ", -1*self.WW)
+      print("Товару не вистачає,витрачено грошей на докупівлю: " , self.count13)
+      count11 += self.count13
+      self.count = 0
+      print("Наявий товар: ",self.count)
+      return self.count13
+      
 class transport:
   def time_transport (self , distance1 ,speed1 ):
     time_transport = distance1 /speed1
@@ -149,7 +162,6 @@ Boos1.Ex(F , S1)
 Sklad = storage()
 for E in range(A):
   count11 = 0
-  Sklad.products()
   print("="*35)
   print(f"День роботи: {E +1}")
   print("="*35)
@@ -213,6 +225,7 @@ for E in range(A):
   P1 = random.randint(1,7)
   P2 = random.randint(1,7)
   P3 = random.randint(1,7)
+  
 
   if N_work < 1:
     num1 = clients_num % 3
@@ -261,8 +274,13 @@ for E in range(A):
   if count11 >0:
     count11 += 100*Boos1.Exx
   print(clients_num)
+  Sklad.products()
+  #Sklad.costs(count11)
+  ASD = Sklad.costs(count11)
+  if ASD == None:
+    ASD = 0
+  count11 += ASD
   print("Заробіток за день: ",count11)
   count12 += count11
-  Sklad.costs()
   print("Загальний заробіток: ",count12)
   
