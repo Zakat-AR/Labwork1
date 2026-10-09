@@ -222,9 +222,9 @@ for E in range(A):
     Clients.append(client)
   
   N_work = clients_num // 3 
-  P1 = random.randint(1,7)
-  P2 = random.randint(1,7)
-  P3 = random.randint(1,7)
+  P1 = random.randint(1,9)
+  P2 = random.randint(1,9)
+  P3 = random.randint(1,9)
   
 
   if N_work < 1:
