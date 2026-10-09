@@ -85,7 +85,7 @@ class Client :
   def __init__(self , cus_weight , distance ):
     self.cus_weight = cus_weight
     self.distance = distance
-    self.Money = self.distance * 50
+    self.Money = self.cus_weight * 25 + self.distance * 2
     self.M = 0
 
   def cl_reaction(self , time):
@@ -100,23 +100,21 @@ class Client :
     return self.D
 
 class storage :
-  def __init__(self ,product ):
-    self.product = product 
-
-  def pos (self , num ):
-    count = 0
-    for x in range (num):
-      count += list[x].cus_weight
-    if count > self.product:
-      count1 = 0
-      for y in range(num):
-       self.R = product - list[y].cus_weight
-       if self.R:
-         count1c +=1
-       else:
-         count1 += 0
-      self.DD = "Можемо надати товар: " + str(count1) + "для клієнтів"  
-    return self.DD  
+  def __init__(self  ):
+    self.A = 0
+    
+ def products(self):
+   self.A = random.randint(400, 600)
+   print("Привезено сьогодні товару",A)
+   self.count += self.A
+def costs(self):
+  self.count -= weight1 - weight2 - weight3
+  if self.count > 0:
+    print("Товару вистачає")
+  else:
+    print("Товару не вистачає,витрачено грошей на докупівлю": , count13)
+    count13 = (self.count - weight1 - weight2 - weight3) * 30'
+    count11 -= count13
 class transport:
   def time_transport (self , distance1 ,speed1 ):
     time_transport = distance1 /speed1
@@ -148,8 +146,10 @@ Max_weight3 = 30
 M = 0
 count12 = 0
 Boos1.Ex(F , S1)
+Sklad = storage()
 for E in range(A):
   count11 = 0
+  Sklad.products()
   print("="*35)
   print(f"День роботи: {E +1}")
   print("="*35)
@@ -263,4 +263,6 @@ for E in range(A):
   print(clients_num)
   print("Заробіток за день: ",count11)
   count12 += count11
+  Sklad.costs()
   print("Загальний заробіток: ",count12)
+  
