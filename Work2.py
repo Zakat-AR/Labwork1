@@ -1,11 +1,11 @@
 import random 
 class Boss:
   def __init__(self , Name , Worktime , Hobby):
-    self.A = 0
-    self.F = 0
-    self.B = 0
-    self.Ef = 0
-    self.Exx = 0
+    self.Efficiency_coefficient_hobby = 0
+    self.Efficiency_coefficient_work_time = 0
+    self.Efficiency_coefficient_mood = 0
+    self.resulting_coefficient = 0
+    self.Efficiency = 0
     self.Name = Name
     self.Worktime = Worktime
     self.Hobby = Hobby
@@ -16,34 +16,34 @@ class Boss:
 
   def Ex(self , Worktime , Hobby):
     if Hobby == "Шахи" :
-      self.A = 5
+      self.Efficiency_coefficient_hobby = 5
     elif Hobby == "Кулінарія" :
-      self.A = -2
+      self.Efficiency_coefficient_hobby = -2
     elif Hobby == "Програмування" :  
-      self.A = 0
+      self.Efficiency_coefficient_hobby = 0
     if Worktime <= 1 :
-      self.B = -4
+      self.Efficiency_coefficient_work_time = -4
     elif Worktime <= 5:
-      self.B = 5
+      self.Efficiency_coefficient_work_time = 5
     elif Worktime >= 5 :
-      self.B = 8
-      self.Ef = self.A + self.B
-      return self.Ef
+      self.Efficiency_coefficient_work_time = 8
+      self.resulting_coefficient = self.Efficiency_coefficient_hobby + self.Efficiency_coefficient_work_time
+      return self.resulting_coefficient
   def rand(self ):
     Event = ["У шефа гарний настрій!","Сьогодні шеф спокійний. ","У шефа поганий настрій.","Шеф втомився від роботи.","Шеф втік з роботи."]
     self.phrase = random.choice(Event)
     if self.phrase == "У шефа гарний настрій":
-      self.F = 3
-    if self.phrase == "Сьогодні шеф спокійний":
-      self.F = 1
-    if self.phrase == "У шефа поганий настрій":
-      self.F = -1
-    if self.phrase == "Шеф втомився від роботи":
-      self.F = -3
-    if self.phrase == "Шеф втік з роботи":
-      self.F = -10  
-    self.Exx = (self.Ef + self.F)//5
-    return self.Exx
+      self.Efficiency_coefficient_mood = 3
+    elif self.phrase == "Сьогодні шеф спокійний":
+      self.Efficiency_coefficient_mood = 1
+    elif self.phrase == "У шефа поганий настрій":
+      self.Efficiency_coefficient_mood = -1
+    elif self.phrase == "Шеф втомився від роботи":
+      self.Efficiency_coefficient_mood = -3
+    elif self.phrase == "Шеф втік з роботи":
+      self.Efficiency_coefficient_mood = -10  
+    self.Efficiency = (self.resulting_coefficient + self.Efficiency_coefficient_mood)//5
+    return self.Efficiency
 pass 
 
 class Worker:
