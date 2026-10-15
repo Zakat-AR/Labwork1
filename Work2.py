@@ -1,45 +1,12 @@
 import random 
 import Boss
-class Worker:
-  def __init__(self,  Name ):
-    self.Name = Name
-    self.Number_of_deliveries = 0
-    self.Max_weight = 0
-    self.weight = 0
-    self.Number_for_phrase_first = 0
-    self.Number_for_phrase_second = 0
-    self.Number_for_phrase_third = 0
-    
-  def work(self, Max_weight, weight):
-    self.weight = weight
-    self.Max_weight = Max_weight
-    self.Number_of_deliveries = self.weight // self.Max_weight  
-    return self.Number_of_deliveries
-    
-  def work2(self, num_of_required_deliveries, num_of_normal_deliveries , Number_of_deliveries):
-    self.Number_of_deliveries = Number_of_deliveries
-    self.num_of_required_deliveries = num_of_required_deliveries
-    self.num_of_normal_deliveries = num_of_normal_deliveries
-    self.Number_for_phrase_first = (self.num_of_required_deliveries + self.Number_of_deliveries) <= self.num_of_normal_deliveries // 2
-    self.Number_for_phrase_second = (self.num_of_required_deliveries + self.Number_of_deliveries) >= self.num_of_normal_deliveries // 2 and self.num_of_required_deliveries <= self.num_of_normal_deliveries * 1.5
-    self.Number_for_phrase_third = (self.num_of_required_deliveries + self.Number_of_deliveries) >= self.num_of_normal_deliveries * 1.5
-    if self.Number_for_phrase_first:
-      self.phrase = "Готовий працювати"
-      return  self.phrase
-    elif self.Number_for_phrase_second:
-     self.phrase = "Працює неохоче"
-     return self.phrase
-    elif self.Number_for_phrase_third:
-      self.prase = "Шукає привід звільнитись"
-      return  self.prase
-  pass
-
-
+import Worker:
+  
 class Client :
-  def __init__(self , cus_weight , distance ):
-    self.weight_of = cus_weight
+  def __init__(self , products_weight , distance ):
+    self.products_weight = products_weight
     self.distance = distance
-    self.Money = self.cus_weight * 25 + self.distance * 2
+    self.Money = self.products_weight* 25 + self.distance * 2
     self.M = 0
 
   def cl_reaction(self , time):
@@ -123,7 +90,7 @@ for E in range(A):
   time = 2.5
   Speed1 = random.randint(1,4)
   car1 = transport()
-  clients_num = random.randint(1,10)
+  clients_number = random.randint(1,10)
   weight = []
   distance = []
   time_list = []
@@ -137,35 +104,35 @@ for E in range(A):
     distance.append(cl_distance)
     N_work = clients_number // 3 
     if N_work < 1:
-      weight1 = sum(weight[0: clients_number // 3])
-      weight2 = 0
-      weight3 = 0
+      Number_of_deliveries_1 = sum(weight[0: clients_number // 3])
+      Number_of_deliveries_2 = 0
+      Number_of_deliveries_3 = 0
       for Dl1 in range (clients_num):
         car1 = transport()
         DD = car1.time_transport(cl_distance , Speed1)
         time_list.append(DD)
     elif N_work >= 1 and N_work <2 :
-      weight1 = sum(weight[0:3])
-      weight2 = sum(weight[3: clients_number // 3])
-      weight3 = 0
+      Number_of_deliveries_1 = sum(weight[0:3])
+      Number_of_deliveries_2 = sum(weight[3: clients_number // 3])
+      Number_of_deliveries_3 = 0
       for Dl1 in range (clients_number ):
         car1 = transport()
         DD = car1.time_transport(cl_distance , Speed1)
         time_list.append(DD)
     elif N_work >= 2 and N_work < 3:
-      weight3 = sum(weight[6:clients_number // 3])
-      weight2 = sum(weight[3:6])
-      weight1 = sum(weight[:3])
+      Number_of_deliveries_3 = sum(weight[6:clients_number // 3])
+      Number_of_deliveries_2 = sum(weight[3:6])
+      Number_of_deliveries_1 = sum(weight[:3])
       #num3 = clients_num % 3
       for Dl1 in range (clients_number):
         car1 = transport()
         DD = car1.time_transport(cl_distance , Speed1)
         time_list.append(DD)
     elif N_work >= 3 :
-      ew = 9 + clients_number // 3
-      weight3 = sum(weight[6:ew])
-      weight2 = sum(weight[3:6])
-      weight1 = sum(weight[:3])
+      ost = 9 + clients_number // 3
+      Number_of_deliveries_3= sum(weight[6:ew])
+      Number_of_deliveries_2 = sum(weight[3:6])
+      Number_of_deliveries_1 = sum(weight[:3])
       for Dl1 in range (clients_num):
         car1 = transport()
         DD = car1.time_transport(cl_distance , Speed1)
@@ -183,40 +150,40 @@ for E in range(A):
 
   if N_work < 1:
     Number_of_deliveries_1 = clients_number % 3
-    weight1 = sum(weight[0: clients_number% 3])
-    weight2 = 0
-    weight3 = 0
+    Number_of_deliveries_1 = sum(weight[0: clients_number% 3])
+    Number_of_deliveries_2 = 0
+    Number_of_deliveries_3 = 0
     Number_of_deliveries_2 = 0
     Number_of_deliveries_3 = 0
   if N_work >= 1 and N_work <2 :
     Number_of_deliveries_1 = 3
     Number_of_deliveries_2 = clients_number % 3
     Number_of_deliveries_3 = 0 
-    weight1 = sum(weight[0:3])
-    weight2 = sum(weight[3: 3+ clients_number % 3])
-    weight3 = 0
-  if N_work >= 2 and N_work < 3:
+    products_weight_1 = sum(weight[0:3])
+    products_weight_2 = sum(weight[3: 3+ clients_number % 3])
+    products_weight_3 = 0
+  elif N_work >= 2 and N_work < 3:
     Number_of_deliveries_1 = 3
     Number_of_deliveries_2 = 3
-    weight3 = sum(weight[6: 6 + clients_number % 3])
-    weight2 = sum(weight[3:6])
-    weight1 = sum(weight[:3])
+    products_weight_3 = sum(weight[6: 6 + clients_number % 3])
+    products_weight_2 = sum(weight[3:6])
+    products_weight_1 = sum(weight[:3])
     Number_of_deliveries_3 = clients_number % 3
-  if N_work >= 3 :
+  elif N_work >= 3 :
      Number_of_deliveries_1 = 3
      Number_of_deliveries_2 = 3
      Number_of_deliveries_3 = 3 + clients_number % 3
-     ew = 9 + clients_num % 3
-     weight3 = sum(weight[6:ew])
-     weight2 = sum(weight[3:6])
-     weight1 = sum(weight[:3])
+     ost = 9 + clients_num % 3
+     products_weight_3 = sum(weight[6:ost])
+     products_weight_2 = sum(weight[3:6])
+     products_weight_1 = sum(weight[:3])
   print("Обрахунки проведені")
-  print(f"Сьогодні {worker1.Name} має точок доставки: ",Number_of_deliveries_1 , f"Вага вантажу: {weight1} кг., кількість поїздок: {weight1 // Max_weight1}")
-  print(f"Сьогодні {worker2.Name} має точок доставки: ",Number_of_deliveries_2, f"Вага вантажу: {weight2} кг., кількість поїздок: {weight2 // Max_weight2}")
-  print(f"Сьогодні {worker3.Name} має точок доставки: ",Number_of_deliveries_3, f"Вага вантажу: {weight3} кг., кількість поїздок: {weight3 // Max_weight3}")  
-  Number_of_deliveries_1 = worker_1.work(Max_weight1 , weight1)
-  Number_of_deliveries_2 = worker2.work(Max_weight2 , weight2)
-  Number_of_deliveries_3 = worker3.work(Max_weight3 , weight3)
+  print(f"Сьогодні {worker1.Name} має точок доставки: ",Number_of_deliveries_1 , f"Вага вантажу: {products_weight_1} кг., кількість поїздок: {products_weight_1 // Max_weight1}")
+  print(f"Сьогодні {worker2.Name} має точок доставки: ",Number_of_deliveries_2, f"Вага вантажу: {products_weight_2} кг., кількість поїздок: {products_weight_2 // Max_weight2}")
+  print(f"Сьогодні {worker3.Name} має точок доставки: ",Number_of_deliveries_3, f"Вага вантажу: {products_weight_3} кг., кількість поїздок: {products_weight_3 // Max_weight3}")  
+  Number_of_deliveries_1 = worker_1.work(Max_weight1 , products_weight_1)
+  Number_of_deliveries_2 = worker2.work(Max_weight2 , products_weight_2)
+  Number_of_deliveries_3 = worker3.work(Max_weight3 , products_weight_3)
   Worker_phrase_1 = worker1.work2(Number_of_deliveries_1, num_of_normal_deliveries_1 , Number_of_deliveries_1)
   Worker_phrase_2 = worker2.work2(Number_of_deliveries_2 , num_of_normal_deliveries_2 , Number_of_deliveries_2)
   Worker_phrase_3 = worker3.work2(Number_of_deliveries_3 , num_of_normal_deliveries_3 , Number_of_deliveries_3) 
