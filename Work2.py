@@ -1,51 +1,5 @@
 import random 
-class Boss:
-  def __init__(self , Name , Worktime , Hobby):
-    self.Efficiency_coefficient_hobby = 0
-    self.Efficiency_coefficient_work_time = 0
-    self.Efficiency_coefficient_mood = 0
-    self.resulting_coefficient = 0
-    self.Efficiency = 0
-    self.Name = Name
-    self.Worktime = Worktime
-    self.Hobby = Hobby
-  def show_info(self ):
-    print("Ім'я: ", self.Name )
-    print("Стаж роботи: " , self.Worktime)
-    print("Хобі боса: " , self.Hobby)
-
-  def Ex(self , Worktime , Hobby):
-    if Hobby == "Шахи" :
-      self.Efficiency_coefficient_hobby = 5
-    elif Hobby == "Кулінарія" :
-      self.Efficiency_coefficient_hobby = -2
-    elif Hobby == "Програмування" :  
-      self.Efficiency_coefficient_hobby = 0
-    if Worktime <= 1 :
-      self.Efficiency_coefficient_work_time = -4
-    elif Worktime <= 5:
-      self.Efficiency_coefficient_work_time = 5
-    elif Worktime >= 5 :
-      self.Efficiency_coefficient_work_time = 8
-      self.resulting_coefficient = self.Efficiency_coefficient_hobby + self.Efficiency_coefficient_work_time
-      return self.resulting_coefficient
-  def rand(self ):
-    Event = ["У шефа гарний настрій!","Сьогодні шеф спокійний. ","У шефа поганий настрій.","Шеф втомився від роботи.","Шеф втік з роботи."]
-    self.phrase = random.choice(Event)
-    if self.phrase == "У шефа гарний настрій":
-      self.Efficiency_coefficient_mood = 3
-    elif self.phrase == "Сьогодні шеф спокійний":
-      self.Efficiency_coefficient_mood = 1
-    elif self.phrase == "У шефа поганий настрій":
-      self.Efficiency_coefficient_mood = -1
-    elif self.phrase == "Шеф втомився від роботи":
-      self.Efficiency_coefficient_mood = -3
-    elif self.phrase == "Шеф втік з роботи":
-      self.Efficiency_coefficient_mood = -10  
-    self.Efficiency = (self.resulting_coefficient + self.Efficiency_coefficient_mood)//5
-    return self.Efficiency
-pass 
-
+import Boss
 class Worker:
   def __init__(self,  Name ):
     self.Name = Name
