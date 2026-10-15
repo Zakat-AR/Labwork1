@@ -14,15 +14,15 @@ class Worker:
     self.weight = weight
     self.Max_weight = Max_weight
     self.S = self.weight // self.Max_weight  
-    return self.S
+    return self.Number_of_deliveries
     
-  def work2(self, num, Power , S):
-    self.S = S
+  def work2(self, num, Power , Number_of_deliveries):
+    self.Number_of_deliveries = Number_of_deliveries
     self.num = num
     self.Power = Power
-    self.PP = (self.num + self.S) <= self.Power // 2
-    self.PPP = (self.num + self.S) >= self.Power // 2 and self.num <= self.Power * 1.5
-    self.PPPP = (self.num + self.S) >= self.Power * 1.5
+    self.PP = (self.num + self.Number_of_deliveries) <= self.Power // 2
+    self.PPP = (self.num + self.Number_of_deliveries) >= self.Power // 2 and self.num <= self.Power * 1.5
+    self.PPPP = (self.num + self.Number_of_deliveries) >= self.Power * 1.5
     if self.PP:
       self.phrase = "Готовий працювати"
       return  self.phrase
@@ -214,12 +214,12 @@ for E in range(A):
   print(f"Сьогодні {worker1.Name} має точок доставки: ",num1 , f"Вага вантажу: {weight1} кг., кількість поїздок: {weight1 // Max_weight1}")
   print(f"Сьогодні {worker2.Name} має точок доставки: ",num2, f"Вага вантажу: {weight2} кг., кількість поїздок: {weight2 // Max_weight2}")
   print(f"Сьогодні {worker3.Name} має точок доставки: ",num3, f"Вага вантажу: {weight3} кг., кількість поїздок: {weight3 // Max_weight3}")  
-  SS1 = worker1.work(Max_weight1 , weight1)
-  SS2 = worker2.work(Max_weight2 , weight2)
-  SS3 = worker3.work(Max_weight3 , weight3)
-  Ph1 = worker1.work2(num1, P1 , SS1)
-  Ph2 = worker2.work2(num2 , P2 , SS2)
-  Ph3 = worker3.work2(num3 , P3 , SS2) 
+  Number_of_deliveries_1 = worker_1.work(Max_weight1 , weight1)
+  Number_of_deliveries_2 = worker2.work(Max_weight2 , weight2)
+  Number_of_deliveries_3 = worker3.work(Max_weight3 , weight3)
+  Ph1 = worker1.work2(num1, P1 , Number_of_deliveries_1)
+  Ph2 = worker2.work2(num2 , P2 , Number_of_deliveries_2)
+  Ph3 = worker3.work2(num3 , P3 , Number_of_deliveries_3) 
   print(f"{worker1.Name} {Ph1}")
   print(f"{worker2.Name} {Ph2}")
   print(f"{worker3.Name} {Ph3}")
