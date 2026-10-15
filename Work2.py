@@ -3,7 +3,7 @@ import Boss
 class Worker:
   def __init__(self,  Name ):
     self.Name = Name
-    self.S = 0
+    self.Number_of_deliveries = 0
     self.Max_weight = 0
     self.weight = 0
     self.PP = 0
@@ -13,7 +13,7 @@ class Worker:
   def work(self, Max_weight, weight):
     self.weight = weight
     self.Max_weight = Max_weight
-    self.S = self.weight // self.Max_weight  
+    self.Number_of_deliveries = self.weight // self.Max_weight  
     return self.Number_of_deliveries
     
   def work2(self, num, Power , Number_of_deliveries):
