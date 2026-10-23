@@ -452,6 +452,8 @@ for Day in range(Number_of_day_simulation):
 
   for number in range(Workers_number):
     Worker = Workers_list[number]
+    if number ==  Workers_number:
+          Worker.All_Drons_Repaired(Broken_robots_workers + Broken_robots % Workers_number )
     Worker.All_Drons_Repaired(Broken_robots_workers)
 
 
