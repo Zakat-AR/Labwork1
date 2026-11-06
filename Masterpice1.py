@@ -126,6 +126,22 @@ for Drone in range(Random_Ground_Drone_number):
   Ground_drone_hour_energy_consume = 7.5
   Ground_drone = Ground_Drone(Ground_drone_Name , Ground_drone_Speed  , Ground_drone_hour_energy_consume ,  Ground_drone_charge_price )
   Ground_Drones.append(Ground_drone)
+      
+logging.info(
+      "Назва наземного дрона: %s",
+      Ground_drone_Name
+)
+
+logging.debug(
+      "Швидкість наземного дрона: %s",
+      Ground_drone_Speed
+)
+
+logging.debug(
+      "Споживання енергії дрона: %s | Вартість зарядження: %s",
+      Ground_drone_hour_energy_consume,
+      Grounf_drone_charge_price
+)
 
 
 # Налаштування Sea_Drones
