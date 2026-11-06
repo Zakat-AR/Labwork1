@@ -1,5 +1,6 @@
 #Імпорт рандому та класів
 import random
+import logging
 from Boss import Boss
 from Boss import Workers_list1
 from Worker import Worker
@@ -13,28 +14,76 @@ from Weather import Weather
 from Client import Client_food
 from Client import Client_materials
 from Client import Client_furniture
-      
+logging.basicConfig(
+      level=logging.DEBUG,
+      filename="simulation.log",
+      filemode="w",
+      format="%(asctime)s | %(levelname)s | %(message)s",
+      datefmt="%Y-%m-%d %H:%M:%S",
+      encoding="utf-8"
+)
 #Рандомне налаштування Боса  
 Number_of_day_simulation = int(input("Введіть кількість днів симуляції: " ))
+logging.info("Симуляція запущена")
+logging.info(
+      "Кількість днів симуляції: %s",
+      Number_of_day_simulation
+)
 Boss_Name_list = ["Макс" ,"Степан","Олександр","Федір" , "Трай" , "Флок" , "Джон" , "Майкан" ,"Дроул"]
 Boss_Hobby_list = ["Шахи","Кулінарія","Програмування"]
 Boss_Name = random.choice(Boss_Name_list)
 Boss_Work_Time = random.randint(1 , 10)
 Boss_Hobby = random.choice(Boss_Hobby_list)
 Boos1 = Boss(Boss_Name, Boss_Work_Time ,Boss_Hobby)
+logging.info("Створення боса")
+logging.info(
+      "Створено боса: %s",
+      Boss_Name
+)
+
+logging.info("У боса такий досвід")
+logging.info(
+      "Досвід роботи: %s",
+      Boss_Work_Time
+)
+
+logging.info("У боса таке хоббі")
+logging.info(
+      "Хобі: %s"
+      Boss_Hobby
+)
+
 Boos1.show_info()
 
 #Рандомне налаштування перших робітників
 Workers_list = []
 Workers_number = random.randint(1,5)
+logging.info(
+      "Кількість створених працівників: %s",
+      Workers_number
+      
+)
+
 for worker_number in range(Workers_number):
   Worker_name_list = ["Олексій","Антон","Федір","Микита","Максим","Олександр","Дмитро","Григорій" , "Афанасій" , "Вольтман"]
   Salary_list = [1500 , 2000 , 2500 , 3000  ]
   Worker_salary = int(random.choice(Salary_list))
-  Worker.Name = random.choice(Worker_name_list)
-  worker = Worker(Worker.Name ,Worker_salary )
+  Worker_name = random.choice(Worker_name_list)
+  worker = Worker(Worker_Name ,Worker_salary )
+
   print("Робітник: ",worker.Name,"приступає до роботи")
   Workers_list.append(worker)
+      
+  logging.info(
+      "Працівник %s приступив до роботи",
+      worker.Name
+)
+
+ logging.debug(
+      "Зарплата працівника %s: %s грн",
+      worker.Name,
+      Worker_salary
+)
 
 #Отримуємо рандомну кількість дронів кожного виду
 Random_Drone_number = random.randint(1,12)
