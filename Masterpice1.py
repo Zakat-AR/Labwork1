@@ -162,6 +162,22 @@ for Drone in range(Random_Water_Drone_number):
   Sea_drone = Water_Drone(Sea_Drone_Name , Sea_Drone_Speed  , Sea_Drone_hour_energy_consume ,  Sea_drone_charge_price )
   Sea_Drones.append(Sea_drone)
 
+logging.info(
+      "Назва водного дрону: %s",
+      Sea_Drone_Name
+)
+
+logging.debug(
+      "Швикдість водного дрону: %s",
+      Sea_Drone_Speed
+)
+
+logging.debug(
+      "Споживання енергії водного дрону: %s | Вартість зарядження водного дрону: %s",
+      Sea_Drone_hour_energy_consume,
+      Sea_Drone_charge_price
+)
+
  #Перевірка 
 for Number in range(len(Drones)):
   Drone = Drones[Number]
@@ -184,6 +200,10 @@ storage_materials = Storage()
 storage_furniture = Storage()
 for Day in range(Number_of_day_simulation):
 
+      logging.info(
+            "Початок дня симуляції: %s",
+            Day + 1
+      )
   #Заставка нового дня
   print("="*35)
   print(f"День роботи: {Day +1}")
@@ -201,9 +221,19 @@ for Day in range(Number_of_day_simulation):
 
 
   #Налаштування погоди
+logging.info("Початок налаштування погоди")
+
   Days_for_weather = random.randint(3,6)
+
+logging.debug(
+      "Згенеровано параметр Days_for_weather: %s",
+      Days_for_weather
+)
   weather = Weather(Days_for_weather)
   weather.Random_Weather()
+
+logging.info("Метод Random_Weather завершив виконання")
+
 
   #Переговори боса з іншими компаніями
   Supply_change = 0
@@ -223,6 +253,21 @@ for Day in range(Number_of_day_simulation):
   Number_of_clients_food = random.randint(1,25)
   Number_of_clients_furniture = random.randint(1,25)
   Number_of_clients_materials = random.randint(1,25)
+
+logging.info(
+      "Кількість клієнтів,що замовили їжу: %s",
+      Number_of_clients_food
+)
+
+logging.info(
+      "Кількість клієнтів,що замовили меблі: %s",
+      Number_of_clients_furniture
+)
+
+logging.info(
+      "Кількість клієнтів, що замовили матеріали: %s",
+      Number_of_clients_materials
+      
 
   
   #Цикл на рандомне надання характеристик клієнтам-покупцям їжі
@@ -277,6 +322,31 @@ for Day in range(Number_of_day_simulation):
   Charges_food = 0
   Food_time_delivering = 0
   for x in range(Random_Drone_number):
+
+logging.info(
+      "Загальний заробіток від доставки їжі: %s",
+      Money_food
+)
+
+logging.info(
+      "Кількість виконаних доставок: %s",
+      Deliveries_food
+)
+
+logging.debug(
+      "Вага перевезення їжі: %s",
+       Food_weight
+)
+
+logging.debug(
+      "Час праці дронів: %s",
+      Food_time_delivering
+)
+
+logging.debug(
+      "Кількість заряджань: %s",
+      Charges_food
+)
     
     Drone = Drones[x]
     Food_weight_cycle = 0
@@ -342,6 +412,37 @@ for Day in range(Number_of_day_simulation):
   Charges_furniture = 0
   furniture_time_delivering = 0
   for x in range(Random_Ground_Drone_number):
+
+        Money_furniture += Money
+        Deliveries_furniture += Deliveries
+        furniture_weight += furniture_weight_cycle
+        Charges_furinture += Charges
+        furniture_time_delivering += Time_delivering
+
+logging.info(
+      "Заробіток від доставки меблів: %s",
+      Money_furniture
+)
+
+logging.info(
+      "Кількість доставок від меблів: %s",
+      Deliveries_furniture
+)
+
+logging.debug(
+      "Вага перевезених меблів: %s",
+      furniture_weight
+)
+
+logging.debug(
+      "Час перевезення меблів: %s",
+      furniture_time_delivering
+)
+
+logging.debug(
+      "кількість заряджань наземних дронів: %s",
+      Charges_furniture
+)
     
     Drone = Ground_Drones[x]
     furniture_weight_cycle = 0
