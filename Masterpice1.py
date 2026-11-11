@@ -1,3 +1,4 @@
+
 #Імпорт рандому та класів
 import random
 import logging
@@ -511,6 +512,38 @@ logging.debug(
   Materials_space_list = 0
   #Початок циклу
   for x in range(Random_Water_Drone_number):
+        
+        Money_materials += Money
+        materials_time_delivering += Time_delivering
+        materials_weight += materials_weight_cycle
+        Deliveries_materials += Deliveries
+        Charges_materials += Charges
+        
+logging.info(
+      "Заробіток від доставки матеріалів: %s",
+      Money_materials
+)
+
+logging.info(
+    "Кількість доставок матеріалів: %s",
+    Deliveries_materials
+)
+
+logging.debug(
+      "Час доставки матеріалів: %s",
+      materials_time_delivering
+)
+
+logging.debug(
+      "Вага матеріалів: %s",
+      materials_weight
+)
+
+logging.debug(
+      "Зарядження матеріалів: %s",
+      Charges_materials
+)
+      
     #Отримання об'єктів-дронів для морських перевезень зі списку , налаштування потрібних для підрахунку змінних у циклу
     Drone = Sea_Drones[x]
     materials_weight_cycle = 0
@@ -595,7 +628,12 @@ logging.debug(
 
 
   Broken_robots = 0
-  
+
+  if Broken_robots > 0:
+        logging.warning("Кількість зламаних роботів: %s", Broken_robots)
+  else:
+       logging.info("Всі роботи справні!")
+        
   for Chance in range(Random_Drone_number ):
     Drone = Drones[Chance]
     Broken_robots = Drone.Get_broken(Broken_robots)
@@ -626,6 +664,13 @@ logging.debug(
   for number in range(Workers_number):
     Worker = Workers_list[number]
     Lost_workers = Worker.Refuse_work(Lost_workers)
+
+    if Lost_workers > 0:
+          logging.warning("Кількість працівників,які звільнилися: %s", 
+          Lost_workers
+      )
+    else:
+          logging.info("Всі працівники на місці своєї праці!")
 
   for number in range(Lost_workers):
       Workers_list.pop(-1)
