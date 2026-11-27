@@ -230,7 +230,7 @@ for day_1 in range(number_of_day_simulation_1):
 
     client_furniture = Client_furniture(weight_furniture , distance_for_furniture_to_client)
     clients_furniture.append(client_furniture)
-
+  # ==================== ТЕСТ 2: АТРИБУТИ КЛІЄНТІВ ====================
   # Перевіряємо базові атрибути кожного типу клієнта.
   basic_client_attributes_1 = ("product_weight", "distance_to_client")
   food_client_attributes_1 = basic_client_attributes_1 + ("price_1", "earned_money_1", "time")
