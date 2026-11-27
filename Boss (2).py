@@ -2,90 +2,90 @@ import random
 from Worker import Worker
 Workers_list1 = []
 class Boss:
-  def __init__(self , Name , Worktime , Hobby):
-    self.Hobby_experience = 0
-    self.Work_time_experience = 0
-    self.Work_hobby_experience = 0
-    self.Resulting_bonus = 0
-    self.Name = Name
-    self.Worktime = Worktime
-    self.Hobby = Hobby
+  def __init__(self , name_1 , worktime_1 , hobby_1):
+    self.name_1 = name_1
+    self.worktime_1 = worktime_1
+    self.hobby_1 = hobby_1 
+    self.hobby_experience_1 = 0
+    self.work_time_experience_1 = 0
+    self.work_hobby_experience_1 = 0
+    self.resulting_bonus_1 = 0
 
-  def show_info(self ):
-    print("Ім'я: ", self.Name )
-    print("Стаж роботи: " , self.Worktime)
-    print("Хобі боса: " , self.Hobby)
+  def info(self ):
+    print("Ім'я: ", self.name_1 )
+    print("Стаж роботи: " , self.worktime_1)
+    print("Хобі боса: " , self.hobby_1)
 
   def Experience(self):
-    if self.Hobby == "Шахи" :
-      self.Hobby_experience = 8
-    elif self.Hobby == "Кулінарія" :
-      self.Hobby_experience = -5
-    elif self.Hobby == "Програмування" :
-      self.Hobby_experience = 0
+    if self.hobby_1 == "Шахи" :
+      self.hobby_experience_1 = 8
+    elif self.hobby_1 == "Кулінарія" :
+      self.hobby_experience_1 = -5
+    elif self.hobby_1 == "Програмування" :
+      self.hobby_experience_1 = 0
       
-    if self.Worktime <= 1 :
-      self.Work_time_experience = -7
-    elif self.Worktime < 5:
-      self.Work_time_experience = 8
-    elif self.Worktime >= 5 :
-      self.Work_time_experience = 11
-    self.Work_hobby_experience = self.Hobby_experience + self.Work_time_experience
-    return self.Work_hobby_experience
+    if self.worktime_1 <= 1 :
+      self.work_time_experience_1 = -7
+    elif self.worktime_1 < 5:
+      self.work_time_experience_1 = 8
+    elif self.worktime_1 >= 5 :
+      self.work_time_experience_1 = 11
+    self.work_hobby_experience_1 = self.hobby_experience_1 + self.work_time_experience_1
+    return self.work_hobby_experience_1
   
   def random_mood(self):
-    self.Mood_bonus = 1
-    Event = ["У шефа гарний настрій!","Сьогодні шеф спокійний. ","У шефа поганий настрій.","Шеф втомився від роботи.","Шеф втік з роботи."]
-    self.phrase = random.choice(Event)
+    self.mood_bonus_1 = 1
+    event_1 = ["У шефа гарний настрій!","Сьогодні шеф спокійний. ","У шефа поганий настрій.","Шеф втомився від роботи.","Шеф втік з роботи."]
+    self.phrase = random.choice(event_1)
     
     if self.phrase == "У шефа гарний настрій!" :
-      self.Mood_bonus = 6
+      self.mood_bonus_1 = 6
       print(self.phrase)
     elif self.phrase == "Сьогодні шеф спокійний. " :
-      self.Mood_bonus = 4
+      self.mood_bonus_1 = 4
       print(self.phrase)
     elif self.phrase == "У шефа поганий настрій." :
-      self.Mood_bonus = -4
+      self.mood_bonus_1 = -4
       print(self.phrase)
     elif self.phrase == "Шеф втомився від роботи." :
-      self.Mood_bonus = -6
+      self.mood_bonus_1 = -6
       print(self.phrase)
     elif self.phrase == "Шеф втік з роботи." :
-      self.Mood_bonus = -9
+      self.mood_bonus_1 = -9
       print(self.phrase)
       
-    self.Resulting_bonus_1 = (self.Work_hobby_experience + self.Mood_bonus)
-    self.Resulting_bonus_2 = self.Resulting_bonus_1 / 2
-    return self.Resulting_bonus_2
+    self.resulting_bonus_1_1 = (self.work_hobby_experience_1 + self.mood_bonus_1)
+    self.resulting_bonus_2_1 = self.resulting_bonus_1_1 / 2
+    return self.resulting_bonus_2_1
 
-  def Deal(self, Working_Day):
+  def Deal(self, working_day_1):
     print("Ведуться переговори компаній")
-    Companies = ["ARTEC ROBOTICS","ZERO CAT","ALFA BETA","SAMSUNG","","TESLA","XORION"]
-    Possible_results = ["Укладена домовленість","Не вдалось знайти консенсус","Отриманий вигідний контракт","Непередбачувані обставини зашкодили переговорам","Ваша компанія отримала нового ворога"]
-    if Working_Day % 10 == 0:
-      Another_company = random.choice(Companies)
-      Dialoge_result = random.choice(Possible_results)
-      if Dialoge_result == "Укладена домовленість":
-        Supply_change = 100
-      elif Dialoge_result == "Не вдалось знайти консенсус":
-        Supply_change = 0
-      elif Dialoge_result == "Отриманий вигідний контракт":
-        Supply_change = 150
-      elif Dialoge_result == "Непередбачувані обставини зашкодили переговорам":
-        Supply_change = 0
-      elif Dialoge_result == "Ваша компанія отримала нового ворога":
-        Supply_change = -100
-      print(f"Переговори з: {Another_company} були завершені. Результат: {Dialoge_result}  на поставки змінить так: {Supply_change}")
-      return Supply_change
+    companies_1 = ["ARTEC ROBOTICS","ZERO CAT","ALFA BETA","SAMSUNG","","TESLA","XORION"]
+    possible_results_1 = ["Укладена домовленість","Не вдалось знайти консенсус","Отриманий вигідний контракт","Непередбачувані обставини зашкодили переговорам","Ваша компанія отримала нового ворога"]
+    if working_day_1 % 10 == 0:
+      another_company_1 = random.choice(companies_1)
+      dialoge_result_1 = random.choice(possible_results_1)
+      if dialoge_result_1 == "Укладена домовленість":
+        supply_change_1 = 100
+      elif dialoge_result_1 == "Не вдалось знайти консенсус":
+        supply_change_1 = 0
+      elif dialoge_result_1 == "Отриманий вигідний контракт":
+        supply_change_1 = 150
+      elif dialoge_result_1 == "Непередбачувані обставини зашкодили переговорам":
+        supply_change_1 = 0
+      elif dialoge_result_1 == "Ваша компанія отримала нового ворога":
+        supply_change_1 = -100
+      print(f"Переговори з: {another_company_1} були завершені. Результат: {dialoge_result_1}  на поставки змінить так: {supply_change_1}")
+      return supply_change_1
 
-  def Find_worker(self , Lost_workers):
+  def Find_worker(self , lost_workers_1):
     
-    for worker_number in range(Lost_workers):
+    for worker_number in range(lost_workers_1):
       
-      Worker_name_list = ["Олексій","Антон","Федір","Микита","Максим","Олександр","Дмитро","Григорій" , "Афанасій" , "Вольтман"]
-      Salary_list = [1500 , 2000 , 2500 , 3000  ]
-      Worker_salary = int(random.choice(Salary_list))
-      Worker_Name = random.choice(Worker_name_list)
-      worker = Worker(Worker_Name ,Worker_salary )
-      print("Робітник: ",worker.Name,"приступає до роботи")
+      worker_name_list_1 = ["Олексій","Антон","Федір","Микита","Максим","Олександр","Дмитро","Григорій" , "Афанасій" , "Вольтман"]
+      salary_list_1 = [1500 , 2000 , 2500 , 3000  ]
+      worker_salary_1 = int(random.choice(salary_list_1))
+      worker_name_1 = random.choice(worker_name_list_1)
+      worker = Worker(worker_name_1 ,worker_salary_1 )
+      print("Робітник: ",worker.name_1,"приступає до роботи")
       Workers_list1.append(worker)
